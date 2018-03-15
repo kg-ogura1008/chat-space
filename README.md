@@ -1,13 +1,13 @@
 ## usersテーブル
 
-| Column   | Type  |           Options                        |
-|----------|-------|------------------------------------------|
-|name      |string |null: false, foreign_key: false, add_index|
-|email     |string |null: false, foreign_key: false           |
-|password  |string |null: false, foreign_key: false           |
+| Column   | Type  |           Options    |
+|----------|-------|----------------------|
+|name      |string |null: false, add_index|
+|email     |string |null: false,          |
+|password  |string |null: false,          |
 
 ### Association
-- has_many :members
+- has_many :groups, through: :members
 - has_many :messages
 
 
@@ -25,12 +25,12 @@
 
 ## groupsテーブル
 
-|  Column  | Type  |           Options            |
-|----------|-------|------------------------------|
-|group_name|string |null: false, foreign_key: false|
+|  Column  | Type  |  Options  |
+|----------|-------|-----------|
+|group_name|string |null: false|
 
 ### Association
-- has_many :menmbers
+- has_many :users, through: :menmbers
 - has_many :messages
 
 
@@ -38,8 +38,8 @@
 
 | Column | Type  |           Options            |
 |--------|-------|------------------------------|
-|message |text   |null: false, foreign_key: false|
-|image   |text   |null: false, foreign_key: false|
+|post    |text   |                              |
+|image   |text   |                              |
 |user_id |integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
