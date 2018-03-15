@@ -1,12 +1,10 @@
 ## usersテーブル
 
-| Column   | Type  |           Options            |
-|----------|-------|------------------------------|
-|name      |string |null: false, foreign_key: true|
-|email     |string |null: false, foreign_key: true|
-|password  |string |null: false, foreign_key: true|
-|member_id |integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+| Column   | Type  |           Options                        |
+|----------|-------|------------------------------------------|
+|name      |string |null: false, foreign_key: false, add_index|
+|email     |string |null: false, foreign_key: false           |
+|password  |string |null: false, foreign_key: false           |
 
 ### Association
 - has_many :members
@@ -17,7 +15,6 @@
 
 | Column | Type  |           Options            |
 |--------|-------|------------------------------|
-|user_id |string |null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 |user_id |integer|null: false, foreign_key: true|
 
@@ -30,9 +27,7 @@
 
 |  Column  | Type  |           Options            |
 |----------|-------|------------------------------|
-|group_name|string |null: false, foreign_key: true|
-|member_id |integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+|group_name|string |null: false, foreign_key: false|
 
 ### Association
 - has_many :menmbers
@@ -43,7 +38,8 @@
 
 | Column | Type  |           Options            |
 |--------|-------|------------------------------|
-|message |text   |null: false, foreign_key: true|
+|message |text   |null: false, foreign_key: false|
+|image   |text   |null: false, foreign_key: false|
 |user_id |integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
