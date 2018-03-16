@@ -4,7 +4,6 @@
 |----------|-------|----------------------|
 |name      |string |null: false, add_index|
 |email     |string |null: false,          |
-|password  |string |null: false,          |
 
 ### Association
 - has_many :groups, through: :members
@@ -14,10 +13,10 @@
 
 ## membersテーブル
 
-| Column | Type  |           Options            |
-|--------|-------|------------------------------|
-|group_id|integer|null: false, foreign_key: true|
-|user_id |integer|null: false, foreign_key: true|
+| Column |   Type   |           Options            |
+|--------|----------|------------------------------|
+|group   |references|null: false, foreign_key: true|
+|user    |references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -38,12 +37,12 @@
 
 ## messagesテーブル
 
-| Column | Type  |           Options            |
-|--------|-------|------------------------------|
-|post    |text   |                              |
-|image   |text   |                              |
-|user_id |integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+| Column |   Type   |           Options            |
+|--------|----------|------------------------------|
+|post    |text      |                              |
+|image   |text      |                              |
+|user    |references|null: false, foreign_key: true|
+|group   |references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
