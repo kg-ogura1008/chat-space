@@ -1,0 +1,39 @@
+.content.clearfix
+  .side_bar
+    .side_bar__header
+      %ul
+        %li.login-name
+          %h1 login_name
+        %li.icon
+          = link_to "./" do
+            %i.fa.fa-cog
+        %li.icon
+          = link_to "./" do
+            %i.fa.fa-edit
+    .side_bar__body
+      %ul
+        %li.group__h2
+          %h2 group name
+          %p new message
+  .main_content
+    .main_content__group.clearfix
+      .main_content__group__left
+        %ul
+          %li.group_name
+            %h2 groupname
+          %li.group_name
+            %p MEMBER: membername
+      .main_content__group__right
+        = link_to "edit", "./"
+    .main_content__body
+      = render partial: 'message', local: {message: @message}
+    .main_content__footer.clearfix
+      .main_content__footer__left
+        %form{action: "", method: "post"}
+          %input.post__text{name: "text", placeholder: "type a message"}
+          %label.post__image
+            %i.fa.fa-image
+            %input{type: "file", name: "image", accept: "image/jpeg, image/gif, image/png"}
+      .main_content__footer__right
+        %input.post-box__submit{type: "submit", value: "Send"}
+/ %script{:src => "js/sample.js"}
