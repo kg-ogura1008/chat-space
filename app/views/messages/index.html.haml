@@ -1,0 +1,38 @@
+#content.clearfix
+  #left_content
+    #left_header
+      %ul
+        %li.login-name
+          %h1 login_name
+        %li.icon
+          = fa_icon("cog")
+        %li.icon
+          = fa_icon("edit")
+    #left_body
+      %ul
+        %li.group__h2
+          %h2 group name
+          %p new message
+  #right_content
+    #group.clearfix
+      #group-left
+        %ul
+          %li.group_name
+            %h2 groupname
+          %li.group_name
+            %p MEMBER: membername
+      #group-right
+        %a edit
+    #right-body
+      .text
+        %ul
+          %li.text__name 名前
+          %li.text__date 2018/03/19 13:00:00
+        %p ここに投稿が表示されます。
+    #right-footer.clearfix
+      .right-footer__left
+        %form{:action => "", :method => "post"}
+          %input.post-form__text{:name => "text", :size => "40", :placeholder => "type a message"}
+      .right-footer__right
+        %input.post-box__submit{:type => "submit", :value => "Send"}
+/ %script{:src => "js/sample.js"}
