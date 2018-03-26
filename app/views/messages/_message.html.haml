@@ -1,5 +1,10 @@
 .main_content__body__text
   %ul
-    %li.main_content__body__text__name 名前
-    %li.main_content__body__text__date 2018/03/19 13:00:00
-  %p ここに投稿が表示されます。
+    %li.main_content__body__text__name
+      = message.user.name
+    %li.main_content__body__text__date
+      = message.created_at
+  - if message.text.present?
+    %p
+      = message.text
+  = image_tag message.image.url if message.image.present?

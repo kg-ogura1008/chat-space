@@ -11,14 +11,14 @@
       .main_content__group__right
         = link_to "edit", "./"
     .main_content__body
-      = render partial: 'message', local: {message: @message}
+      = render @messages
     .main_content__footer.clearfix
-      .main_content__footer__left
-        %form{action: "", method: "post"}
-          %input.post__text{name: "text", placeholder: "type a message"}
-          %label.post__image
+      = form_for [@group, @message] do |f|
+        .main_content__footer__left
+          = f.text_field :text, class: 'post__text', placeholder: 'type a message'
+          = f.label :image, class: 'post__image' do
             %i.fa.fa-image
-            %input{type: "file", name: "image", accept: "image/jpeg, image/gif, image/png"}
-      .main_content__footer__right
-        %input.post-box__submit{type: "submit", value: "Send"}
+            = f.file_field :image
+        .main_content__footer__right
+          = f.submit 'Send', class: 'post-box__submit'
 / %script{:src => "js/sample.js"}
