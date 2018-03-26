@@ -1,0 +1,52 @@
+.side_bar {
+  color: white;
+  width: 300px;
+  float: left;
+  &__header {
+    background-color: #0A0C0F;
+
+    ul {
+      height: 130px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      li.login-name {
+        padding-top: 40px;
+        float: left;
+        h1 { font-weight: bold; font-size: 18px; }
+      }
+
+      li.icon {
+        padding-top: 40px;
+        float: right;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+
+  &__groups {
+    height: calc(100vh - 130px);
+    background-color: #283140;
+    .group {
+      height: 100px;
+      a {
+        color: white;
+        text-decoration: none;
+        .group__name {
+          padding-top: 20px;
+          margin-left: 20px;
+          font-size: 1.3em;
+        }
+        .group__message {
+          font-size: 15px;
+          margin-left: 20px;
+        }
+      }
+    }
+    .group:hover {
+      background-color: #495b74;
+    }
+  }
+}
