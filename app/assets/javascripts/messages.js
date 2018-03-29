@@ -3,7 +3,7 @@ $(function(){
     var html = `<div class="main_content__body__text">
                   <ul>
                     <li class="main_content__body__text__name">
-                      ${message.id}
+                      ${message.name}
                     </li>
                     <li class="main_content__body__text__date">
                       ${message.date}
