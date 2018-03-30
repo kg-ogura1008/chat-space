@@ -52,6 +52,7 @@
   &__body {
     background-color: #FAFAFA;
     height: calc(100vh - 230px);
+    overflow: auto;
     &__text {
       height: 120px;
       &__name {
