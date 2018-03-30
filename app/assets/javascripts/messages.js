@@ -1,6 +1,8 @@
 $(function(){
   function buildHTML(message){
-    var html = `<div class="main_content__body__text">
+    // var message_image = "";
+    message.image_url == null ? message_image = "" : message_image = message.image_url;
+    var html =  `<div class="main_content__body__text">
                   <ul>
                     <li class="main_content__body__text__name">
                       ${message.name}
@@ -9,12 +11,10 @@ $(function(){
                       ${message.date}
                     </li>
                   </ul>
-                  <p>
-                    ${message.text}
-                  </p>
-                  <image src="${message.image_url}">
-                </div>`
-    return html;
+                  <p>${message.text}</p>
+                  <img src="${message_image}">
+                </div>`;
+    return html
   }
 
   $('#new_message').on('submit', function(e){
