@@ -11,7 +11,8 @@
       .main_content__group__right
         = link_to "edit", "./"
     .main_content__body
-      = render @messages
+      .messages
+        = render @messages
       / = render partial: 'message', collection: @messages
     .main_content__footer.clearfix
       = form_for [@group, @message] do |f|

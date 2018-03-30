@@ -19,32 +19,30 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
-    console.log(this);
+    var url = $(this).attr('action');
+    var button = $('.post-box__submit');
     $.ajax({
       url: url,
       type: "POST",
       data: formData,
       dataType: 'json',
       processData: false,
-      contentType: false.
+      contentType: false,
       beforeSend: function(xhr, settings){
-        $button.attr('disabled', true);
+        button.attr('disabled', true);
       },
-      complete: function(xhr, textStatus){
-        $button.attr('disabled', false);
+      complete: function(xhr, settings){
+        button.attr('disabled', false);
       }
     })
     .done(function(data){
-      console.log(data.name);
-      console.log(data.date);
-      console.log(data.text);
       var html = buildHTML(data);
-      $('.main_content__body').append(html)
-      $('.post__text').val('')
-    })
+      $('.main_content__body').append(html);
+      $('.post__text').val('');
+      $('.main_content__body').animate({scrollTop: $('.messages').height()}, 'fast');    })
     .fail(function(){
       alert('error');
     })
+    return false;
   })
 });
