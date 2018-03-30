@@ -54,7 +54,7 @@
     height: calc(100vh - 230px);
     overflow: scroll;
     &__text {
-      height: 120px;
+      min-height: 120px;
       &__name {
         margin-top: 35px;
         margin-left: 30px;
