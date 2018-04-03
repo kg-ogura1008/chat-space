@@ -49,9 +49,7 @@ $(function(){
   });
 
   function update(){
-    console.log('起動')
     var url = window.location.pathname;
-    console.log(url);
     if (url.match(/\/groups\/\d\/messages/)){
       $.ajax({
       url: url,
