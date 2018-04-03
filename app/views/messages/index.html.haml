@@ -1,26 +1,27 @@
-.content.clearfix
-  = render partial: 'shared/side_bar', local: {side_bar: @side_bar}
-  .main_content
-    .main_content__group.clearfix
-      .main_content__group__left
-        %ul
-          %li.group_name
-            %h2 groupname
-          %li.group_name
-            %p MEMBER: membername
-      .main_content__group__right
-        = link_to "edit", "./"
-    .main_content__body
-      .messages
-        = render @messages
-      / = render partial: 'message', collection: @messages
-    .main_content__footer.clearfix
-      = form_for [@group, @message] do |f|
-        .main_content__footer__left
-          = f.text_field :text, class: 'post__text', placeholder: 'type a message'
-          = f.label :image, class: 'post__image' do
-            %i.fa.fa-image
-            = f.file_field :image
-        .main_content__footer__right
-          = f.submit 'Send', class: 'post-box__submit'
-/ %script{:src => "js/sample.js"}
+.wrapper
+  .content.clearfix
+    = render partial: 'shared/side_bar', local: {side_bar: @side_bar}
+    .main_content
+      .main_content__group.clearfix
+        .main_content__group__left
+          %ul
+            %li.group_name
+              %h2 groupname
+            %li.group_name
+              %p MEMBER: membername
+        .main_content__group__right
+          = link_to "edit", "./"
+      .main_content__body
+        .messages
+          = render @messages
+        / = render partial: 'message', collection: @messages
+      .main_content__footer.clearfix
+        = form_for [@group, @message] do |f|
+          .main_content__footer__left
+            = f.text_field :text, class: 'post__text', placeholder: 'type a message'
+            = f.label :image, class: 'post__image' do
+              %i.fa.fa-image
+              = f.file_field :image
+          .main_content__footer__right
+            = f.submit 'Send', class: 'post-box__submit'
+  / %script{:src => "js/sample.js"}
