@@ -36,14 +36,41 @@ $(function(){
         button.attr('disabled', false);
       }
     })
-    .done(function(data){
-      var html = buildHTML(data);
+    .done(function(json_data){
+      var html = buildHTML(json_data);
       $('.main_content__body').append(html);
       $('.post__text').val('');
-      $('.main_content__body').animate({scrollTop: $('.messages').height()}, 'fast');    })
+      $('.main_content__body').animate({scrollTop: $('.messages').height()}, 0, 'fast');
+    })
     .fail(function(){
       alert('error');
     })
     return false;
-  })
+  });
+
+  function update(){
+    var url = window.location.pathname;
+    if (url.match(/\/groups\/\d\/messages/)){
+      $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'json',
+    })
+      .done(function(messages){
+        $('.messages').empty();
+        if (messages.length !== 0){
+          messages.forEach(function(message){
+            var insertHTML = "";
+            insertHTML = buildHTML(message);
+            $('.messages').append(insertHTML);
+            // $('.main_content__body').animate({scrollTop: $('.messages').height()}, 'fast');
+          });
+        }
+      })
+      .fail(function(){
+        alert('error');
+      })
+    }
+  };
+  setInterval(update, 5000);
 });
